@@ -141,7 +141,7 @@ class Operaciones {
         if (raiz.izq() != null) directas++;
         if (raiz.der() != null) directas++;
     
-        int indirectas = Math.max(numeroDeElementos(raiz.izq()) + numeroDeElementos(raiz.der()) - 2, 0) ;
+        int indirectas = Math.max(numeroDeElementos(raiz) - 3, 0) ;
         return (directas * 100) + (indirectas * 20);
     }
 
