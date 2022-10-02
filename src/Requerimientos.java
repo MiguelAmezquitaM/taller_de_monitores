@@ -136,12 +136,12 @@ class Operaciones {
         if (raiz == null) {
             return 0;
         }
-        int directas = 0;
 
+        int directas = 0;
         if (raiz.izq() != null) directas++;
         if (raiz.der() != null) directas++;
-    
-        int indirectas = Math.max(numeroDeElementos(raiz) - 3, 0) ;
+
+        int indirectas = numeroDeElementos(raiz) - 1 - directas ;
         return (directas * 100) + (indirectas * 20);
     }
 
