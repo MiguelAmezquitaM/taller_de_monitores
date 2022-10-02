@@ -37,7 +37,8 @@ public class Requerimientos {
 
     public static void asignarMonitor(Arbin<Monitor> raiz) {
         String lista = Operaciones.listarMonitores(raiz, "");
-        String nombre = JOptionPane.showInputDialog(null, "Escoge un monitor para asignarle una monitoria\n"+lista+"\n"+"Nombre: ");
+        String nombre = JOptionPane.showInputDialog(null,
+                "Escoge un monitor para asignarle una monitoria\n" + lista + "\n" + "Nombre: ");
         Arbin<Monitor> Raiz = Operaciones.buscarArbinPorNombre(raiz, nombre);
         if (Raiz == null) {
             JOptionPane.showMessageDialog(null, "Monitor no encontrado");
@@ -46,8 +47,8 @@ public class Requerimientos {
         String nombreM = JOptionPane.showInputDialog(null, "Nombre del monitor nuevo: ");
         int edad = Integer.parseInt(JOptionPane.showInputDialog(null, "Edad del monitor nuevo: "));
         int promedio = Integer.parseInt(JOptionPane.showInputDialog(null, "Promedio del monitor nuevo: "));
-        Monitor monitor = new Monitor(nombreM,edad,promedio);
-        Operaciones.asignarMonitor(Raiz,monitor);
+        Monitor monitor = new Monitor(nombreM, edad, promedio);
+        Operaciones.asignarMonitor(Raiz, monitor);
     }
 
 }
@@ -145,8 +146,9 @@ class Operaciones {
         return (directas * 100) + (indirectas * 20);
     }
 
-    public static void asignarMonitor (Arbin<Monitor> raiz,Monitor x) {
-        if (raiz == null) return;
+    public static void asignarMonitor(Arbin<Monitor> raiz, Monitor x) {
+        if (raiz == null)
+            return;
         if (raiz.izq() != null && raiz.der() != null) {
             JOptionPane.showMessageDialog(null, "Este monitor no tiene espacio");
             return;
@@ -158,6 +160,6 @@ class Operaciones {
         if (raiz.der() == null) {
             raiz.setDer(new Arbin<>(x));
             return;
-        }   
+        }
     }
 }
