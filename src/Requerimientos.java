@@ -143,8 +143,8 @@ class Operaciones {
         int directas = 0;
         int indirectas = 0;
         if (raiz.izq() == null || raiz.der() == null) {
-            directas = 1;
-            indirectas = 1;
+            directas++;
+            indirectas++;
         } else {
             directas = 2;
         }
