@@ -15,18 +15,19 @@ public class Menu {
 
     public static void main(String[] args) {
         Arbin<Monitor> monitores = crearArbol();
-        boolean x = true;
+        boolean running = true;
         do {
             String menuPrincipal = "1. Listar monitores\n" +
-                "2. Ver promedio de edades\n" +
-                "3. Buscar por nombre\n" +
-                "4. Obtener cuanto gana por nombre\n" +
-                "5. Asignar monitoria directa a un monitor\n" +
-                "6. Listar monitores sin asociados\n" +
-                "7. Salir.\n\n"+
+                    "2. Ver promedio de edades\n" +
+                    "3. Buscar por nombre\n" +
+                    "4. Obtener cuanto gana por nombre\n" +
+                    "5. Asignar monitoria directa a un monitor\n" +
+                    "6. Listar monitores sin asociados\n" +
+                    "7. Salir.\n\n" +
 
-                "Seleccione option: ";
-            int opcion = Integer.parseInt(JOptionPane.showInputDialog(null, menuPrincipal, "Seleccione una opcion",JOptionPane.QUESTION_MESSAGE));
+                    "Seleccione option: ";
+            int opcion = Integer.parseInt(JOptionPane.showInputDialog(null, menuPrincipal, "Seleccione una opcion",
+                    JOptionPane.QUESTION_MESSAGE));
             switch (opcion) {
                 case 1:
                     Requerimientos.listarMonitores(monitores);
@@ -47,12 +48,12 @@ public class Menu {
                     Requerimientos.sinMonitorAsociado(monitores);
                     break;
                 case 7:
-                    x = false;
+                    running = false;
                     break;
                 default:
                     break;
-                }
-        }while(x == true);
+            }
+        } while (running == true);
     }
 
     private static Arbin<Monitor> crearArbol() {

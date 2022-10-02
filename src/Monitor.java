@@ -11,6 +11,6 @@ public class Monitor {
 
     @Override
     public String toString() {
-        return "Monitor [nombre: " + nombre + ", edad: " + edad + ", promedio: " + promedio + "]";
+        return "[Monitor nombre: " + nombre + ", edad: " + edad + ", promedio: " + promedio + "]";
     }
 }
