@@ -15,41 +15,44 @@ public class Menu {
 
     public static void main(String[] args) {
         Arbin<Monitor> monitores = crearArbol();
-
-        String menuPrincipal = "1. Listar monitores\n" +
+        boolean x = true;
+        do {
+            String menuPrincipal = "1. Listar monitores\n" +
                 "2. Ver promedio de edades\n" +
                 "3. Buscar por nombre\n" +
                 "4. Obtener cuanto gana por nombre\n" +
                 "5. Asignar monitoria directa a un monitor\n" +
-                "6. Listar monitores sin asociados\n\n" +
+                "6. Listar monitores sin asociados\n" +
+                "7. Salir.\n\n"+
 
                 "Seleccione option: ";
-
-        String opcion = JOptionPane.showInputDialog(null, menuPrincipal, "Seleccione una opcion",
-                JOptionPane.QUESTION_MESSAGE);
-
-        switch (Integer.parseInt(opcion)) {
-            case 1:
-                Requerimientos.listarMonitores(monitores);
-                break;
-            case 2:
-                Requerimientos.promedioDeEdades(monitores);
-                break;
-            case 3:
-                Requerimientos.buscarPorNombre(monitores);
-                break;
-            case 4:
-                Requerimientos.cuantoGanara(monitores);
-                break;
-            case 5:
-                Requerimientos.asignarMonitor(monitores);
-                break;
-            case 6:
-                Requerimientos.sinMonitorAsociado(monitores);
-                break;
-            default:
-                break;
-        }
+            int opcion = Integer.parseInt(JOptionPane.showInputDialog(null, menuPrincipal, "Seleccione una opcion",JOptionPane.QUESTION_MESSAGE));
+            switch (opcion) {
+                case 1:
+                    Requerimientos.listarMonitores(monitores);
+                    break;
+                case 2:
+                    Requerimientos.promedioDeEdades(monitores);
+                    break;
+                case 3:
+                    Requerimientos.buscarPorNombre(monitores);
+                    break;
+                case 4:
+                    Requerimientos.cuantoGanara(monitores);
+                    break;
+                case 5:
+                    Requerimientos.asignarMonitor(monitores);
+                    break;
+                case 6:
+                    Requerimientos.sinMonitorAsociado(monitores);
+                    break;
+                case 7:
+                    x = false;
+                    break;
+                default:
+                    break;
+                }
+        }while(x == true);
     }
 
     private static Arbin<Monitor> crearArbol() {
