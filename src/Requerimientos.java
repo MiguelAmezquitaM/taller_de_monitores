@@ -3,7 +3,7 @@ import javax.swing.JOptionPane;
 public class Requerimientos {
 
     public static void listarMonitores(Arbin<Monitor> raiz) {
-        String lista = Operaciones.listarMonitores(raiz, "    ");
+        String lista = Operaciones.listarMonitores(raiz, " ");
         JOptionPane.showMessageDialog(null, lista, "Arbol de Monitores", JOptionPane.INFORMATION_MESSAGE);
     }
 
@@ -57,13 +57,12 @@ class Operaciones {
 
     public static String listarMonitores(Arbin<Monitor> raiz, String sep) {
         String lista = raiz.obtener().toString() + "\n";
-        String nextSep = sep + sep;
 
         if (raiz.izq() != null) {
-            lista += sep + listarMonitores(raiz.izq(), nextSep);
+            lista += sep + listarMonitores(raiz.izq(), sep + "  ");
         }
         if (raiz.der() != null) {
-            lista += sep + listarMonitores(raiz.der(), nextSep);
+            lista += sep + listarMonitores(raiz.der(), sep + "  ");
         }
         return lista;
     }
@@ -97,7 +96,7 @@ class Operaciones {
         if (raiz == null) {
             return 0.f;
         }
-        return raiz.obtener().edad + promedioDeEdades(raiz.izq()) + promedioDeEdades(raiz.der());
+        return raiz.obtener().edad + sumaDeEdades(raiz.izq()) + sumaDeEdades(raiz.der());
     }
 
     public static Monitor buscarPorNombre(Arbin<Monitor> raiz, String nombre) {
@@ -138,12 +137,21 @@ class Operaciones {
         if (raiz == null) {
             return 0;
         }
+<<<<<<< HEAD
         int directas = 0;
         if (raiz.izq() == null || raiz.der() == null)
             directas++;
         else
             directas = 2;
         int indirectas = numeroDeElementos(raiz) - 1 - directas;
+=======
+
+        int directas = 0;
+        if (raiz.izq() != null) directas++;
+        if (raiz.der() != null) directas++;
+
+        int indirectas = numeroDeElementos(raiz) - 1 - directas ;
+>>>>>>> a25a7d5c6db69156d323873f6a552263d418a0cf
         return (directas * 100) + (indirectas * 20);
     }
 
