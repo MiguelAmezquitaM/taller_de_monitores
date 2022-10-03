@@ -138,10 +138,10 @@ class Operaciones {
             return 0;
         }
         int directas = 0;
-        if (raiz.izq() == null || raiz.der() == null)
+        if (raiz.izq() != null)
             directas++;
-        else
-            directas = 2;
+        if (raiz.der() != null)
+            directas++;
         int indirectas = numeroDeElementos(raiz) - 1 - directas;
         return (directas * 100) + (indirectas * 20);
     }
